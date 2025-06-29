@@ -1,6 +1,7 @@
 import { createClient } from '@supabase/supabase-js'
+import { Database } from '../database.types'
 
-// Create a single supabase client for interacting with your database
-const supabase = createClient('https://food-recipe.supabase.co', 'public-anon-key')
-
-export { supabase }
+const supabase = createClient<Database>(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_ANON_KEY!
+)

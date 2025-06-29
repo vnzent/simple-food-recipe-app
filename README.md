@@ -1,6 +1,86 @@
+# Food Recipe App
+
+A Next.js application for discovering and saving delicious recipes from around the world. This project includes user authentication with Supabase.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Features
+
+- User authentication (sign up, sign in, sign out)
+- Protected routes for authenticated users
+- Recipe browsing by categories
+- Responsive design with dark mode support
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org/) - React framework
+- [Supabase](https://supabase.io/) - Backend as a Service (BaaS) for authentication and database
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+
+## Authentication Implementation
+
+This project uses Supabase for authentication. The implementation includes:
+
+- Server-side authentication with `@supabase/ssr`
+- Client-side authentication components
+- Middleware for session management
+- Protected routes with authentication checks
+
+### Authentication Flow
+
+1. Users can sign up with email, password, and name
+2. Users can sign in with email and password
+3. Authentication state is maintained across the application
+4. Protected routes redirect unauthenticated users to the sign-in page
+
+## Project Structure
+
+```
+/app
+  /auth
+    /sign-in
+      page.tsx
+      sign-in-form.tsx
+    /sign-up
+      page.tsx
+      sign-up-form.tsx
+    actions.ts
+  /profile
+    page.tsx
+  /recipes
+    page.tsx
+  layout.tsx
+  page.tsx
+/components
+  auth-check.tsx
+  header.tsx
+  user-nav.tsx
+/utils
+  /supabase
+    client.ts
+    middleware.ts
+    server.ts
+middleware.ts
+```
+
 ## Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or later)
+- npm or yarn
+- Supabase account and project
+
+### Environment Variables
+
+Create a `.env.local` file in the root directory with the following variables:
+
+```
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+### Installation
 
 First, run the development server:
 
@@ -16,9 +96,7 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a custom font.
 
 ## Learn More
 
